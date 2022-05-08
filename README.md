@@ -132,3 +132,35 @@ int main()
     return 0;
 }
 ```
+如果去掉P的初始化列表形式，这样写的话也是对的，但是必须参数个数一致。
+```cpp
+#include <iostream>
+#include <initializer_list>
+using namespace std;
+class P{
+    public:
+    P(int a, int b) {
+        cout << "p(int, int),a = " << a <<", b = " << b << endl;
+    }
+   /* P(initializer_list<int> init){
+        cout <<"p(init,valus = ";
+        for (auto i : init)
+        cout << i << ' ';
+        cout << endl;
+    }*/
+};
+int main()
+{
+    P p(5,6);
+    P q{5,6};
+    //P r{2,3,4};
+    P s = {77, 5};
+    return 0;
+}
+```
+结果为：
+```cpp
+p(int, int),a = 5, b = 6
+p(int, int),a = 5, b = 6
+p(int, int),a = 77, b = 5
+```
