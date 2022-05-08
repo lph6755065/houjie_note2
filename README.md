@@ -231,7 +231,7 @@ int main()
 
 error: no match for ‘operator+’ (operand types are ‘Complex’ and ‘int’)
 ```
-如果去掉了explict就可以直接让复数的实部相加了
+如果去掉了explict就可以直接让复数的实部相加了.这种叫做non-explict one argument 只有这种才可以Complex c2 = c1 + 5;
 ```cpp
 #include <iostream>
 //#include <initializer_list>
