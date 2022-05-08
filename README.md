@@ -74,6 +74,8 @@ int main()
 
 ## initializer_list 
 
+这个的本质是array容器
+
 初始化列表不会限制参数的个数，但是参数的类型必须一致，
 ```cpp
 #include <iostream>
