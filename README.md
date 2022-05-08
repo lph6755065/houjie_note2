@@ -198,7 +198,73 @@ ab
 23
 ```
 ## explict 
-运用explict做复数的写法
+
+运用explict的写法
+```cpp
+#include <iostream>
+//#include <initializer_list>
+#include <algorithm>
+using namespace std;
+struct Complex{
+    int real, imag;
+    
+    
+    explicit Complex(int re, int im = 0):real(re), imag(im){}
+    Complex operator+(const Complex& x){
+        return Complex((real + x.real),(imag + x.imag));
+    }
+};
+int main()
+{
+  
+    Complex c1(12,5);
+    Complex c2 = c1 + 5;
+    cout << c1.real << " " << c1.imag<< endl;
+    cout << c2.real << " " << c2.imag << endl;
+    
+    return 0;
+}
+
+```  
+结果为：
+```cpp
+
+error: no match for ‘operator+’ (operand types are ‘Complex’ and ‘int’)
+```
+如果去掉了explict就可以直接让复数的实部相加了
+```cpp
+#include <iostream>
+//#include <initializer_list>
+#include <algorithm>
+using namespace std;
+struct Complex{
+    int real, imag;
+    
+    
+    Complex(int re, int im = 0):real(re), imag(im){}
+    Complex operator+(const Complex& x){
+        return Complex((real + x.real),(imag + x.imag));
+    }
+};
+int main()
+{
+  
+    Complex c1(12,5);
+    Complex c2 = c1 + 5;
+    cout << c1.real << " " << c1.imag<< endl;
+    cout << c2.real << " " << c2.imag << endl;
+    
+    return 0;
+}
+```
+结果为：
+```cpp
+12 5
+17 5
+```
+
+
+稍微完整的复数的写法
 ```cpp
 #include <iostream>
 //#include <initializer_list>
