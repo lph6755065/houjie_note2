@@ -166,3 +166,34 @@ p(int, int),a = 5, b = 6
 p(int, int),a = 5, b = 6
 p(int, int),a = 77, b = 5
 ```
+初始化列表在C++11之后基本都内置了.比如vector等等。
+
+下面是内置的比较大小，比较起来不会限制比较的数量多少。
+```cpp
+
+#include <iostream>
+//#include <initializer_list>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    cout << max({"233","23","33","44"}) << endl;
+    cout << min({"233","23","33","44"}) << endl;
+    cout << max({"ab","abc","ace"}) << endl;
+    cout << min({"ab","abc","ace"}) << endl;
+    cout << max({233,23,33,44}) << endl;
+    cout << min({233,23,33,44}) << endl;
+    
+    return 0;
+}
+```  
+结果为：
+```cpp
+44
+233
+ace
+ab
+233
+23
+```
