@@ -197,3 +197,37 @@ ab
 233
 23
 ```
+## explict 
+运用explict做复数的写法
+```cpp
+#include <iostream>
+//#include <initializer_list>
+#include <algorithm>
+using namespace std;
+struct Complex{
+    int real, imag;
+    
+    Complex(int re, int im):real(re), imag(im){}
+    Complex operator+(const Complex& x){
+        return Complex((real + x.real),(imag + x.imag));
+    }
+};
+int main()
+{
+  
+    Complex c1(12,5);
+    Complex c2 = c1; //(17, 5)
+    c2.real = c1.real + 5;
+    c2.imag = c1.imag + 5;
+    cout << c1.real << " " << c1.imag<< endl;
+    cout << c2.real << " " << c2.imag << endl;
+    
+    return 0;
+}
+```
+
+结果为：
+```cpp
+12 5
+17 10
+```
